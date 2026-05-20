@@ -1,0 +1,263 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "outline": "#747878",
+                    "inverse-surface": "#313030",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "outline-variant": "#c4c7c7",
+                    "tertiary": "#000000",
+                    "on-surface-variant": "#444748",
+                    "tertiary-fixed-dim": "#cac6c4",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#1c1b1a",
+                    "primary-container": "#1c1b1b",
+                    "primary": "#000000",
+                    "surface-container-high": "#ebe7e6",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f4f0ef",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1c1b1b",
+                    "secondary-container": "#e2e2e2",
+                    "surface": "#fdf8f8",
+                    "secondary-fixed": "#e2e2e2",
+                    "inverse-primary": "#c8c6c5",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#5d5e5f",
+                    "surface-container-low": "#f7f3f2",
+                    "surface-bright": "#fdf8f8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#474746",
+                    "primary-fixed": "#e5e2e1",
+                    "surface-container-highest": "#e5e2e1",
+                    "surface-variant": "#e5e2e1",
+                    "surface-dim": "#ddd9d8",
+                    "on-tertiary-container": "#868382",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-container": "#f1edec",
+                    "surface-tint": "#5f5e5e",
+                    "on-tertiary-fixed-variant": "#484645",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#1c1b1a",
+                    "background": "#fdf8f8",
+                    "tertiary-fixed": "#e6e2df",
+                    "on-secondary-container": "#636465",
+                    "on-primary-container": "#858383",
+                    "on-surface": "#1c1b1b",
+                    "on-primary-fixed": "#1c1b1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Bricolage Grotesque"],
+                    "label-sm": ["JetBrains Mono"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "headline-xl-mobile": ["Bricolage Grotesque"],
+                    "body-md": ["Courier Prime"],
+                    "body-lg": ["Courier Prime"]
+            },
+            "fontSize": {
+                    "headline-xl": ["40px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "600"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+<body class="paper-texture text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 border-b-2 border-outline skew-y-1 bg-surface flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto z-50">
+<div class="font-headline-xl text-headline-xl italic text-primary uppercase tracking-tighter">MARROW</div>
+<nav class="hidden md:flex gap-12">
+<a class="font-body-md text-body-md uppercase tracking-widest text-primary font-bold underline decoration-wavy hover:italic hover:tracking-tighter transition-all" href="#research">OVERVIEW</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-secondary hover:italic hover:tracking-tighter transition-all" href="#model">FRAMEWORK</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-secondary hover:italic hover:tracking-tighter transition-all" href="#dataset">ACCESS</a>
+</nav>
+<button class="active:opacity-70 active:scale-95 transition-transform md:hidden relative z-50" onclick="document.getElementById('mobile-menu').classList.toggle('-translate-y-full'); document.getElementById('mobile-menu').classList.toggle('translate-y-0');">
+<span class="material-symbols-outlined text-3xl" data-icon="menu">menu</span>
+</button>
+</header>
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 bg-surface z-40 flex flex-col items-center justify-center space-y-8 transform -translate-y-full transition-transform duration-300 md:hidden">
+    <a class="font-headline-xl text-headline-xl uppercase tracking-widest text-primary hover:italic hover:tracking-tighter transition-all" href="#research" onclick="document.getElementById('mobile-menu').classList.replace('translate-y-0', '-translate-y-full')">OVERVIEW</a>
+    <a class="font-headline-xl text-headline-xl uppercase tracking-widest text-secondary hover:italic hover:tracking-tighter transition-all" href="#model" onclick="document.getElementById('mobile-menu').classList.replace('translate-y-0', '-translate-y-full')">FRAMEWORK</a>
+    <a class="font-headline-xl text-headline-xl uppercase tracking-widest text-secondary hover:italic hover:tracking-tighter transition-all" href="#dataset" onclick="document.getElementById('mobile-menu').classList.replace('translate-y-0', '-translate-y-full')">ACCESS</a>
+</div>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<!-- Hero Section -->
+<section id="research" class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-24 items-end animate-fade-in scroll-mt-32">
+<div class="md:col-span-8 relative">
+<div class="absolute -top-4 -left-4 font-label-sm text-label-sm text-outline z-10">FIG. 01 // OVERVIEW</div>
+<div class="border-2 border-black p-1 transform -rotate-1 bg-white">
+<img alt="Marrow Model Overview" class="w-full h-auto grayscale contrast-125" src="hero.png">
+</div>
+</div>
+<div class="md:col-span-4 flex flex-col justify-end space-y-6">
+<div class="sketchy-oval inline-block w-fit mb-8">
+<h1 class="font-headline-xl text-headline-xl uppercase italic">WHAT IS</h1>
+</div>
+<h2 class="font-display-lg text-display-lg uppercase leading-none mb-4">MARROW<br>AI</h2>
+<div class="divider-sketch mb-6" style="background-position-x: 3.48438px;"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic leading-relaxed">
+                    "WHEN ARCHITECTURAL EFFICIENCY IS MERGED WITH CLINICAL CONTEXT, A TOOL IS MADE WHICH JUST DOESN'T 'SEE' BROKEN BONES - IT UNDERSTANDS THEM."
+                </p>
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-4xl" data-icon="edit_note" style="font-variation-settings: &quot;FILL&quot; 0;">edit_note</span>
+<a class="font-label-sm text-label-sm border-b border-black hover:text-primary transition-colors cursor-pointer" href="X_Ray_Detection_Using_DenseNet%20(5).pdf" target="_blank">READ THE PAPER</a>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="divider-sketch my-20" style="background-position-x: 3.48438px;"></div>
+<!-- The Man Section (Asymmetric) -->
+<section id="model" class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-32 animate-fade-in scroll-mt-32">
+<div class="md:col-span-5 order-2 md:order-1 flex flex-col justify-center">
+<h3 class="font-headline-xl text-headline-xl mb-8 flex items-center gap-4">
+<span class="material-symbols-outlined" data-icon="circle">circle</span>
+                    THE FRAMEWORK
+                </h3>
+<div class="space-y-8 font-body-md text-body-md text-on-surface-variant max-w-md">
+<p class="relative">
+<span class="absolute -left-8 top-0 text-2xl font-bold opacity-30">“</span>
+                        An integrated multi-label diagnostic framework. It shifts the narrative from binary "Fracture or Healthy" to contextual triage by classifying 11 unique anatomical and pathological labels.
+                    </p>
+<p class="">
+                        Using DenseNet121 as its neural engine, it leverages a Hybrid Ensemble layer with a Random Forest meta-classifier to emulate the diagnostic process of expert radiologists.
+                    </p>
+<div class="p-6 border-2 border-dashed border-outline-variant bg-surface-container-low rotate-1">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-2">Technical Analysis:</p>
+<p class="italic text-sm">Contrast Limited Adaptive Histogram Equalization (CLAHE) clarifies hairline fractures, while Grad-CAM provides a visual "sanity check" by highlighting the exact pixels triggering the diagnosis.</p>
+</div>
+</div>
+</div>
+<div class="md:col-span-7 order-1 md:order-2">
+<div class="relative w-full aspect-[4/5] bg-surface-container-highest border-2 border-black overflow-hidden">
+<img alt="Marrow Model Workflow" class="w-full h-full object-cover grayscale opacity-90 contrast-150" src="workflow.jpg">
+<div class="absolute bottom-4 left-4 bg-white/80 backdrop-blur px-4 py-2 border border-black font-label-sm text-label-sm italic">
+                        DENSENET / 2026 STUDY
+                    </div>
+</div>
+</div>
+</section>
+<!-- Bento Sketch Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 animate-fade-in">
+<div class="p-8 border-2 border-black flex flex-col justify-between hover:bg-primary hover:text-on-primary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-4xl" data-icon="ink_pen">ink_pen</span>
+<span class="font-label-sm text-label-sm">01 / 03</span>
+</div>
+<div>
+<h4 class="font-headline-xl-mobile text-headline-xl-mobile uppercase mb-4">CLAHE VISION</h4>
+<p class="font-body-md text-body-md opacity-80 group-hover:opacity-100">Enhancing dynamic range via contextual tiles to reveal subtle cortical breaks obscured in standard X-rays.</p>
+</div>
+</div>
+<div class="p-8 border-2 border-black flex flex-col justify-between rotate-1 bg-white hover:bg-primary hover:text-on-primary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-4xl" data-icon="texture">texture</span>
+<span class="font-label-sm text-label-sm">02 / 03</span>
+</div>
+<div>
+<h4 class="font-headline-xl-mobile text-headline-xl-mobile uppercase mb-4">DENSENET121</h4>
+<p class="font-body-md text-body-md opacity-80 group-hover:opacity-100">Leveraging feature concatenation for optimal gradient flow and parameter efficiency on the FracAtlas dataset.</p>
+</div>
+</div>
+<div class="p-8 border-2 border-black flex flex-col justify-between -rotate-1 hover:bg-primary hover:text-on-primary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-4xl" data-icon="gesture">gesture</span>
+<span class="font-label-sm text-label-sm">03 / 03</span>
+</div>
+<div>
+<h4 class="font-headline-xl-mobile text-headline-xl-mobile uppercase mb-4">GRAD-CAM XAI</h4>
+<p class="font-body-md text-body-md opacity-80 group-hover:opacity-100">Providing an explainable clinical heartbeat by translating network attention into verifiable spatial heatmaps.</p>
+</div>
+</div>
+</section>
+<!-- Interactive Sketch Area -->
+<section id="dataset" class="mb-32 animate-fade-in scroll-mt-32">
+<div class="border-4 border-double border-black p-12 bg-white relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[200px]" data-icon="fingerprint">fingerprint</span>
+</div>
+<div class="max-w-2xl relative z-10">
+<h5 class="font-display-lg text-display-lg mb-8">ACCESS THE MODEL</h5>
+<p class="font-body-lg text-body-lg mb-8 italic">Download the source code and deploy the DenseNet121 fracture detection model locally.</p>
+<div class="space-y-8">
+<div class="flex flex-col sm:flex-row flex-wrap gap-6">
+<a class="inline-block px-8 py-4 border-2 border-black font-headline-xl-mobile text-headline-xl-mobile uppercase transition-all scribble-hover hover:scale-105 active:scale-95 text-center" href="downloadables.zip" download>
+    PROJECT CODE
+</a>
+<a class="inline-block px-8 py-4 border-2 border-black font-headline-xl-mobile text-headline-xl-mobile uppercase transition-all scribble-hover hover:scale-105 active:scale-95 text-center" href="downloadables/vertopal.com_updations%20(2).pdf" target="_blank" download>
+    DOCUMENTATION
+</a>
+<a class="inline-block px-8 py-4 border-2 border-dashed border-black font-headline-xl-mobile text-headline-xl-mobile uppercase transition-all hover:border-solid hover:bg-black hover:text-white hover:scale-105 active:scale-95 text-center" href="#" target="_blank">
+    TEST LIVE
+</a>
+</div>
+<div class="border-2 border-dashed border-outline-variant bg-surface-container-low p-6 rotate-1">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-4 border-b border-black pb-2 inline-block">Model Deployment Instructions</p>
+<ol class="font-body-md text-body-md text-on-surface-variant space-y-4 list-decimal list-inside marker:font-bold">
+    <li>Download the <span class="font-bold text-primary">Collab Notebook</span> using the button above.</li>
+    <li>Open <span class="font-bold text-primary">Google Colab</span> or <span class="font-bold text-primary">Jupyter Notebook</span> in your browser.</li>
+    <li>Upload and open the downloaded <span class="bg-black text-white px-2 py-1 mx-1 font-label-sm tracking-wider">.ipynb</span> file.</li>
+    <li>Ensure you have the required <span class="bg-black text-white px-2 py-1 mx-1 font-label-sm tracking-wider">.keras</span> or weights file uploaded to your environment.</li>
+    <li>Run the cells sequentially to initialize the DenseNet121 architecture and start inferencing.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t-4 border-double border-outline bg-surface-container flex flex-col md:flex-row justify-between items-start md:items-center px-margin-desktop py-12 w-full gap-12 md:gap-0">
+<div class="flex flex-col items-center md:items-start w-full md:w-auto">
+<div class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface italic uppercase tracking-tighter mb-4">MARROW PROJECT</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase space-y-2 text-center md:text-left">
+    <p>DESIGN & DEVELOPMENT: <span class="font-bold text-primary">TANISHQ RAY</span></p>
+    <p>CONTRIBUTOR: <span class="font-bold text-primary">MAITHLI SINGH TOMAR</span></p>
+</div>
+</div>
+<div class="flex flex-col items-center md:items-end gap-6 w-full md:w-auto">
+<div class="flex gap-8">
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary transition-colors underline decoration-wavy" href="https://github.com/tanishqray65617" target="_blank">GITHUB</a>
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary transition-colors underline decoration-wavy" href="https://www.linkedin.com/in/tanishq-ray-a7543b341" target="_blank">LINKEDIN</a>
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary transition-colors underline decoration-wavy" href="#">CONTACT</a>
+</div>
+<p class="font-label-sm text-label-sm uppercase opacity-50 mt-4">MARROW RESEARCH STUDY © 2026</p>
+</div>
+</footer>
+<script src="script.js"></script>
+
+
+</body></html>

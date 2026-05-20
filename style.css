@@ -1,0 +1,68 @@
+/* Custom "Sketchy" Effects */
+.sketchy-border {
+    border-style: solid;
+    border-width: 2px;
+    border-image: url("data:image/svg+xml,%3Csvg width='100' height='10' viewBox='0 0 100 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5C20 3 40 7 60 4C80 2 100 6 100 5' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") 1
+    }
+.sketchy-oval {
+    position: relative
+    }
+.sketchy-oval::after {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: -5%;
+    right: -5%;
+    bottom: -10%;
+    border: 2px solid currentColor;
+    border-radius: 50% 45% 52% 48%/48% 52% 45% 50%;
+    transform: rotate(-1deg);
+    pointer-events: none
+    }
+.paper-texture {
+    background-color: #fdf8f8;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuC0tSJ76LoLDk8Z3ecq7sQ9nzzvdqZZlWpKzOY8kS-Mf2vLL5hEqr0G-2YWQkFZogrDOPIl2OsPCaZrXol6vs4DgrvPPOv6Go1j4R5yaxAbS4ftqK_Vq1_1VvVu_H3cbkHAZg45b6rZEtN8lbuOcSgJtXgZZgTgGOPWhPhJZr4_wZvUr__oKIqnKP4UkrGFr5SEJcuHeI1XxR-ZmtHoFbSm8lAcla3R2gWvoNt2eB6oY4cqqEmKJ7lcvraBrvGDIRXqWydM6v8Pjcg);
+    background-repeat: repeat;
+    background-size: 600px;
+    background-attachment: fixed;
+    }
+.divider-sketch {
+    height: 4px;
+    background: url("data:image/svg+xml,%3Csvg width='1000' height='4' viewBox='0 0 1000 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 2C50 1 100 3 150 2C200 1 250 3 300 2C350 1.5 400 2.5 450 2C500 1 550 3 600 2C650 1 700 3 750 2C800 1.5 850 2.5 900 2C950 1 1000 3 1000 2' stroke='black' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
+    width: 100%;
+    opacity: 0.8
+    }
+.scribble-hover:hover {
+    background-image: radial-gradient(circle, #000 1px, transparent 1px);
+    background-size: 4px 4px;
+    color: #fff
+    }
+/* Material Symbols Customization */
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+    display: inline-block;
+    vertical-align: middle
+    }
+
+/* Animations */
+@keyframes fadeInWobble {
+    0% { opacity: 0; transform: translateY(20px) rotate(-2deg); }
+    100% { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+@keyframes jitter {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(0.5deg); }
+    75% { transform: rotate(-0.5deg); }
+}
+
+.animate-fade-in {
+    opacity: 0;
+}
+.animate-fade-in.is-visible {
+    animation: fadeInWobble 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.jitter-element {
+    animation: jitter 3s infinite ease-in-out;
+}
